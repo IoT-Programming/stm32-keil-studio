@@ -1,0 +1,5 @@
+ROOT=.
+TARGET=NUCLEO_F446RE
+TARGET_CODE=0777
+DEVICE_ID[/home/studio/workspace/SX1272PingPong_Tx]=066BFF544949878667254630
+DEVICE_TYPE[/home/studio/workspace/SX1272PingPong_Tx]=connected
