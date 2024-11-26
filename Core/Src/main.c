@@ -39,10 +39,7 @@ int main(void) {
     while (1) {
     	if (PulseSensor_SawStartOfBeat(&mySensor)) {
     	    int bpm = PulseSensor_GetBeatsPerMinute(&mySensor);
-    	    printf("♥ A Heartbeat Happened!\n"); // 심박 이벤트 메시지
     	    printf("BPM: %d\n", bpm); // BPM 출력
-    	} else {
-    	    printf("No Beat Detected. Current ADC Value: %lu\n", PulseSensor_ReadADC(&mySensor));
     	}
 
         HAL_Delay(1000); // 20ms 지연
@@ -164,7 +161,6 @@ void MX_USART2_UART_Init(void) {
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
     if (htim->Instance == TIM2) {
         PulseSensor_OnSampleTime(&mySensor);
-        printf("Timer interrupt triggered.\n"); // 타이머 인터럽트 확인
     }
 }
 
