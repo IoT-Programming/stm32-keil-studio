@@ -5,14 +5,14 @@
 
 // PulseSensor 구조체 정의
 typedef struct {
-    uint16_t analogPin;           // ADC 입력 핀
-    uint16_t ledPin;              // LED 출력 핀
-    int threshold;                // 신호 감지 임계값
-    int bpm;                      // BPM 값
-    unsigned long lastBeatTime;   // 마지막 비트 시간
-    int beatDetected;             // 비트 감지 여부 (0 또는 1)
+    uint32_t threshold;
+    uint8_t beatDetected;
+    unsigned long lastBeatTime;
+    unsigned long startTime;   // 10초 간격의 시작 시간
+    uint32_t beatCount;        // 10초 동안 감지된 비트 수
+    int bpm;                   // 계산된 BPM
+    uint16_t ledPin;           // LED 핀 번호
 } PulseSensor;
-
 // 함수 프로토타입
 void PulseSensor_Init(PulseSensor *sensor, uint16_t analogPin, uint16_t ledPin, int threshold);
 void PulseSensor_Begin(PulseSensor *sensor);
